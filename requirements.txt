@@ -1,1 +1,5 @@
-
+os
+pyqrcode
+pypng
+python-gnupg
+pprint
