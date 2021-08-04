@@ -37,7 +37,7 @@ python3 qr-backup.py -d code.png private_key.pem
 If you like this project then please consider to donate something.
 - Bitcoin - bc1q32asnt6waz3czj4s8l7hvgnywpgatlvvvwwxyp
 
-<img alt="btc" src="https://user-images.githubusercontent.com/59290767/128230575-0041db1a-c85a-438b-9374-ca5c96dda99c.jpg" width="17%">.
+<img alt="btc" src="https://user-images.githubusercontent.com/59290767/128230575-0041db1a-c85a-438b-9374-ca5c96dda99c.jpg" width="17%">
 
 - Ethereum - 0x311414BC8880BaEe435A59bdF7fdC632c3f6B8b1
 
