@@ -1,4 +1,7 @@
 # QR Backup
+The purpose of this project is to establish a more secure alternative to paper backups of sensitive texts (like passwords, crypto seeds etc.) while keeping the content of backups as interoperable as possible.
+
+This code use `RSA SHA256` asymmetric encrption to encrypt your text and then convert it a QR code which can later be printed and kept at a safe place.
 
 ## Requirements
 - Python 3
@@ -30,3 +33,7 @@ To decode your text from the QR code, run the following command.
 ```shell
 python3 qr-backup.py -d code.png private_key.pem
 ```
+## Donate
+If you like this project then please consider to donate something.
+- Bitcoin - 
+- Ethereum - 
