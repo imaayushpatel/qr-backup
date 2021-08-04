@@ -10,10 +10,52 @@ from pyzbar.pyzbar import decode
 import cv2 as cv
 import binascii
 
-print("1. Encode")
-print("2. Decode")
-a = input("What do you want to do: ")
-if a == "1":
+a = sys.argv[1]
+if a == "-e":
+    key = sys.argv[3]
+    with open(str(key), "rb") as key_file:
+        public_key = serialization.load_pem_public_key(
+            key_file.read(),
+            backend=default_backend()
+        )
+    msg = bytes(sys.argv[2], encoding='utf-8')
+    encrypted = public_key.encrypt(
+        msg,
+        padding.OAEP(
+            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            algorithm=hashes.SHA256(),
+            label=None
+        )
+    )
+    code = pyqrcode.create(binascii.hexlify(encrypted))
+    code.png('code.png', scale=10)
+    print("Encryption Successful")
+elif a == "-d":
+    path = sys.argv[2]
+    key = sys.argv[3]
+    # Reading the keys back in (for demonstration purposes)
+    with open(str(key), "rb") as key_file:
+        private_key = serialization.load_pem_private_key(
+            key_file.read(),
+            password=None,
+            backend=default_backend()
+        )
+    img = Image.open(path)
+    result = decode(img)
+    for i in result:
+        encrypted =  binascii.unhexlify(i.data.decode("utf-8"))
+    original_message = private_key.decrypt(
+        encrypted,
+        padding.OAEP(
+            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            algorithm=hashes.SHA256(),
+            label=None
+        )
+    )
+    print("Decryption Successful")
+    print("Decrypted Text:  ", original_message.decode('utf-8'))
+
+elif a == "-g":
     # Generating a key
     private_key = rsa.generate_private_key(
         public_exponent=65537,
@@ -37,47 +79,7 @@ if a == "1":
     with open('public_key.pem', 'wb') as f:
         f.write(pem)
     
-    print(" ")
-    msg = bytes(input("Type the text to encode: "), encoding='utf-8')
-    encrypted = public_key.encrypt(
-        msg,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    code = pyqrcode.create(binascii.hexlify(encrypted))
-    code.png('code.png', scale=10)
+    print("Keys Generation Successful")
 
-
-elif a == "2":
-    print(" ")
-    path = input("Type path to QR code: ")
-    print("")
-    key = input("Enter the path to your private key: ")
-    print("")
-    # Reading the keys back in (for demonstration purposes)
-    with open(str(key), "rb") as key_file:
-        private_key = serialization.load_pem_private_key(
-            key_file.read(),
-            password=None,
-            backend=default_backend()
-        )
-    img = Image.open(path)
-    result = decode(img)
-    for i in result:
-        encrypted =  binascii.unhexlify(i.data.decode("utf-8"))
-    original_message = private_key.decrypt(
-        encrypted,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    print(str(original_message))
-
-    
 else:
-  print("Make a Valid selection")
+  print("Error")

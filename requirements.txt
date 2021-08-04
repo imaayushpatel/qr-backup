@@ -1,5 +1,5 @@
-os
+cryptography
 pyqrcode
-pypng
-python-gnupg
-pprint
+pyzbar
+PILLOW
+opencv-python
