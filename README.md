@@ -39,13 +39,4 @@ If you like this project then please consider to donate something.
 | Bitcoin (BTC) | Ethereum (ETH) |
 | --------- | ------------------- |
 | bc1q32asnt6waz3czj4s8l7hvgnywpgatlvvvwwxyp | 0x311414BC8880BaEe435A59bdF7fdC632c3f6B8b1 |
-| <img alt="btc" src="https://user-images.githubusercontent.com/59290767/128230575-0041db1a-c85a-438b-9374-ca5c96dda99c.jpg" width="17%"> | <img alt="eth" src="https://user-images.githubusercontent.com/59290767/128230627-0f5613b9-0f72-4d3d-9cd2-93a1ac5516e9.jpg" width="17%"> |
-
-- Bitcoin - bc1q32asnt6waz3czj4s8l7hvgnywpgatlvvvwwxyp
-
-<img alt="btc" src="https://user-images.githubusercontent.com/59290767/128230575-0041db1a-c85a-438b-9374-ca5c96dda99c.jpg" width="17%">
-
-- Ethereum - 0x311414BC8880BaEe435A59bdF7fdC632c3f6B8b1
-
-<img alt="eth" src="https://user-images.githubusercontent.com/59290767/128230627-0f5613b9-0f72-4d3d-9cd2-93a1ac5516e9.jpg" width="17%">
-
+| <img alt="btc" src="https://user-images.githubusercontent.com/59290767/128230575-0041db1a-c85a-438b-9374-ca5c96dda99c.jpg" width="25%"> | <img alt="eth" src="https://user-images.githubusercontent.com/59290767/128230627-0f5613b9-0f72-4d3d-9cd2-93a1ac5516e9.jpg" width="25%"> |
