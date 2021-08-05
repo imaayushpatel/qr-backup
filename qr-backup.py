@@ -12,7 +12,9 @@ import binascii
 
 a = sys.argv[1]
 if a == "-e":
-    key = sys.argv[3]
+    path = sys.argv[3]
+    key = sys.argv[4]
+    # Reading the public_key back in
     with open(str(key), "rb") as key_file:
         public_key = serialization.load_pem_public_key(
             key_file.read(),
@@ -28,12 +30,18 @@ if a == "-e":
         )
     )
     code = pyqrcode.create(binascii.hexlify(encrypted))
-    code.png('code.png', scale=10)
+    code.png(path, scale=10)
+    image = cv.imread(path)
+    image = cv.resize(image, (500, 500))
+    cv.imshow("image", image)
+    cv.waitKey(0)
+    cv.destroyAllWindows()
     print("Encryption Successful")
+
 elif a == "-d":
     path = sys.argv[2]
     key = sys.argv[3]
-    # Reading the keys back in (for demonstration purposes)
+    # Reading the private_key back in
     with open(str(key), "rb") as key_file:
         private_key = serialization.load_pem_private_key(
             key_file.read(),
