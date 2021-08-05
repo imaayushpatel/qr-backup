@@ -8,7 +8,7 @@ This code use `RSA SHA256` asymmetric encrption to encrypt your text and then co
 - Linux, Windows or Mac OS
 
 ## Installation
-![installation](https://user-images.githubusercontent.com/59290767/128222774-cbf3601c-d85f-4d51-9f63-41d107b5127d.png)<br>
+<p align="center">![installation](https://user-images.githubusercontent.com/59290767/128222774-cbf3601c-d85f-4d51-9f63-41d107b5127d.png)</p><br>
 Run the following commands step by step to install QR Backup on your device.
 ```shell
 git clone https://github.com/aayushp26/qr-backup
@@ -18,20 +18,20 @@ pip3 install -r requirements.txt
 
 ## Usage
 ### Generating Keys
-![key generation](https://user-images.githubusercontent.com/59290767/128384004-b618cbdf-9c6c-49b4-ba2e-f635cff58777.png)<br>
+<p align="center">![key generation](https://user-images.githubusercontent.com/59290767/128384004-b618cbdf-9c6c-49b4-ba2e-f635cff58777.png)</p><br>
 To generate your private and public keys run the following command
 ```shell
 python3 qr-backup.py -g
 ```
 ### Encoding Text
-![encoding](https://user-images.githubusercontent.com/59290767/128384043-cf9b5990-1e6f-42a5-8f58-c14add4f14f0.png)<br>
+<p align="center">![encoding](https://user-images.githubusercontent.com/59290767/128384043-cf9b5990-1e6f-42a5-8f58-c14add4f14f0.png)</p><br>
 <p align="center"><img alt="btc" src="https://user-images.githubusercontent.com/59290767/128384056-8301c68f-1091-4a44-8f81-134a1ceaaaad.png" width="30%"></p><br>
 To encode text into QR code, run the following command and enter your message between " " (double quotes).
 ```shell
 python3 qr-backup.py -e "witch collapse practice feed shame open despair creek road again ice least" qr_code.png public_key.pem
 ```
 ### Decoding Text
-![decoding](https://user-images.githubusercontent.com/59290767/128384104-1a58e1d4-d33b-4ec3-a81a-1aa5b4e0fa1e.png)<br>
+<p align="center">![decoding](https://user-images.githubusercontent.com/59290767/128384104-1a58e1d4-d33b-4ec3-a81a-1aa5b4e0fa1e.png)</p><br>
 To decode your text from the QR code, run the following command.
 ```shell
 python3 qr-backup.py -d code.png private_key.pem
