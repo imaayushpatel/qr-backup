@@ -41,7 +41,7 @@ python3 qr-backup.py -e "witch collapse practice feed shame open despair creek r
 To decode your text from the QR code, run the following command.
 
 ```shell
-python3 qr-backup.py -d code.png private_key.pem
+python3 qr-backup.py -d qr_code.png private_key.pem
 ```
 
 ## Donate
