@@ -18,20 +18,20 @@ pip3 install -r requirements.txt
 
 ## Usage
 ### Generating Keys
-![key generation](https://user-images.githubusercontent.com/59290767/128384004-b618cbdf-9c6c-49b4-ba2e-f635cff58777.png)
+![key generation](https://user-images.githubusercontent.com/59290767/128384004-b618cbdf-9c6c-49b4-ba2e-f635cff58777.png)<br>
 To generate your private and public keys run the following command
 ```shell
 python3 qr-backup.py -g
 ```
 ### Encoding Text
-![encoding](https://user-images.githubusercontent.com/59290767/128384043-cf9b5990-1e6f-42a5-8f58-c14add4f14f0.png)
-![qr-code](https://user-images.githubusercontent.com/59290767/128384056-8301c68f-1091-4a44-8f81-134a1ceaaaad.png)
+![encoding](https://user-images.githubusercontent.com/59290767/128384043-cf9b5990-1e6f-42a5-8f58-c14add4f14f0.png)<br>
+<p align="center"><img alt="btc" src="https://user-images.githubusercontent.com/59290767/128384056-8301c68f-1091-4a44-8f81-134a1ceaaaad.png" width="60%"></p><br>
 To encode text into QR code, run the following command and enter your message between " " (double quotes).
 ```shell
 python3 qr-backup.py -e "witch collapse practice feed shame open despair creek road again ice least" qr_code.png public_key.pem
 ```
 ### Decoding Text
-![decoding](https://user-images.githubusercontent.com/59290767/128384104-1a58e1d4-d33b-4ec3-a81a-1aa5b4e0fa1e.png)
+![decoding](https://user-images.githubusercontent.com/59290767/128384104-1a58e1d4-d33b-4ec3-a81a-1aa5b4e0fa1e.png)<br>
 To decode your text from the QR code, run the following command.
 ```shell
 python3 qr-backup.py -d code.png private_key.pem
