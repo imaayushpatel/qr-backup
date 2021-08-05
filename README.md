@@ -29,7 +29,7 @@ python3 qr-backup.py -g
 
 ### Encoding Text
 <p align="center"><img alt="encoding" src="https://user-images.githubusercontent.com/59290767/128384043-cf9b5990-1e6f-42a5-8f58-c14add4f14f0.png"></p><br>
-<p align="center"><img alt="qr-code" src="https://user-images.githubusercontent.com/59290767/128384056-8301c68f-1091-4a44-8f81-134a1ceaaaad.png" width="30%"></p><br>
+<p align="center"><img alt="qr-code" src="https://user-images.githubusercontent.com/59290767/128384056-8301c68f-1091-4a44-8f81-134a1ceaaaad.png" width="45%"></p><br>
 To encode text into QR code, run the following command and enter your message between " " (double quotes).
 
 ```shell
