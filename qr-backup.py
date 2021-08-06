@@ -11,7 +11,7 @@ import cv2 as cv
 import binascii
 
 a = sys.argv[1]
-if a == "-e":
+if a == "-e" or a == "--encode":
     path = sys.argv[3]
     key = sys.argv[4]
     # Reading the public_key back in
@@ -33,12 +33,10 @@ if a == "-e":
     code.png(path, scale=10)
     image = cv.imread(path)
     image = cv.resize(image, (500, 500))
-    cv.imshow("image", image)
-    cv.waitKey(0)
-    cv.destroyAllWindows()
     print("Encryption Successful")
+    
 
-elif a == "-d":
+elif a == "-d" or a == "--decode":
     path = sys.argv[2]
     key = sys.argv[3]
     # Reading the private_key back in
@@ -63,7 +61,8 @@ elif a == "-d":
     print("Decryption Successful")
     print("Decrypted Text:  ", original_message.decode('utf-8'))
 
-elif a == "-g":
+
+elif a == "-g" or a == "--generate-keys":
     # Generating a key
     private_key = rsa.generate_private_key(
         public_exponent=65537,
@@ -88,6 +87,32 @@ elif a == "-g":
         f.write(pem)
     
     print("Keys Generation Successful")
+
+
+elif a == "-ef" or a == "--encode-file":
+    path = sys.argv[3]
+    key = sys.argv[4]
+    # Reading the public_key back in
+    with open(str(key), "rb") as key_file:
+        public_key = serialization.load_pem_public_key(
+            key_file.read(),
+            backend=default_backend()
+        )
+    with open(sys.argv[2], 'r') as f:
+        msg = bytes(f.read(), encoding='utf-8')
+    encrypted = public_key.encrypt(
+        msg,
+        padding.OAEP(
+            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            algorithm=hashes.SHA256(),
+            label=None
+        )
+    )
+    code = pyqrcode.create(binascii.hexlify(encrypted))
+    code.png(path, scale=10)
+    image = cv.imread(path)
+    image = cv.resize(image, (500, 500))
+    print("Encryption Successful")
 
 else:
   print("Error")
