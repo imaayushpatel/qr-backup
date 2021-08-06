@@ -35,8 +35,15 @@ To encode text into QR code, run the following command and enter your message be
 ```shell
 python3 qr-backup.py -e "witch collapse practice feed shame open despair creek road again ice least" qr_code.png public_key.pem
 ```
+### Encoding Text from a File
+<p align="center"><img src="https://user-images.githubusercontent.com/59290767/128536863-100a8086-01f4-4980-984a-e9abd870f1a5.png"></p><br>
+To encode text from a file into QR code, use -
 
-### Decoding Text
+```shell
+python3 qr-backup.py -ef seed.asc qr_code.png public_key.pem
+```
+
+### Decoding QR Code
 <p align="center"><img alt="decoding" src="https://user-images.githubusercontent.com/59290767/128384104-1a58e1d4-d33b-4ec3-a81a-1aa5b4e0fa1e.png"></p><br>
 To decode your text from the QR code, run the following command.
 
