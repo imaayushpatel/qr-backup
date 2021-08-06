@@ -50,7 +50,15 @@ To decode your text from the QR code, use `-d` or `--decode` as given below.
 ```shell
 python3 qr-backup.py -d qr_code.png private_key.pem
 ```
-## Fuctions
+## Options
+
+| Short| Long | Description |
+|-------------------|-----------------------------|-----------------------------------------------------------------------|
+| `-g` | `--generate-keys` | Generate private and public keys |
+| `-e` | `--encode` | Encode text into QR code |
+| `-ef` | `--encode-file` | Encode text from a file into QR code |
+| `-d` | `--decode` | Decode QR code into text |
+
 
 ## Donate
 If you like this project then please consider to donate something.
