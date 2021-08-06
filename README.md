@@ -9,6 +9,7 @@ This code use `RSA SHA256` asymmetric encrption to encrypt your text and then co
 
 ## Installation
 <p align="center"><img alt="installation" src="https://user-images.githubusercontent.com/59290767/128222774-cbf3601c-d85f-4d51-9f63-41d107b5127d.png"></p><br>
+
 Run the following commands step by step to install QR Backup on your device.
 
 ```shell
@@ -21,6 +22,7 @@ pip3 install -r requirements.txt
 
 ### Generating Keys
 <p align="center"><img alt="key generation" src="https://user-images.githubusercontent.com/59290767/128384004-b618cbdf-9c6c-49b4-ba2e-f635cff58777.png"></p><br>
+
 To generate your private and public keys, use `-g` or `--generate-keys` as give below.
 
 ```shell
@@ -29,7 +31,7 @@ python3 qr-backup.py -g
 
 ### Encoding Text
 <p align="center"><img alt="encoding" src="https://user-images.githubusercontent.com/59290767/128384043-cf9b5990-1e6f-42a5-8f58-c14add4f14f0.png"></p><br>
-</p><br>
+
 To encode text into QR code, use `-e` or `--encode` as given below and enter your message between " " (double quotes).
 
 ```shell
@@ -37,6 +39,7 @@ python3 qr-backup.py -e "witch collapse practice feed shame open despair creek r
 ```
 ### Encoding Text from a File
 <p align="center"><img alt="endoding_file" src="https://user-images.githubusercontent.com/59290767/128537723-56f998a0-22f1-45d2-8d53-e68ed8a6661c.png"></p><br>
+
 To encode text from a file into QR code, use `-ef` or `--encode-file` as given below.
 
 ```shell
@@ -45,11 +48,13 @@ python3 qr-backup.py -ef seed.asc qr_code.png public_key.pem
 
 ### Decoding QR Code
 <p align="center"><img alt="decoding" src="https://user-images.githubusercontent.com/59290767/128384104-1a58e1d4-d33b-4ec3-a81a-1aa5b4e0fa1e.png"></p><br>
+
 To decode your text from the QR code, use `-d` or `--decode` as given below.
 
 ```shell
 python3 qr-backup.py -d qr_code.png private_key.pem
 ```
+
 ## Options
 
 | Short| Long | Description |
