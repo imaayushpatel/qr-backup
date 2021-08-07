@@ -60,7 +60,8 @@ python3 qr-backup.py -d qr_code.png private_key.pem
 ## Options
 
 | Short| Long | Description |
-|-------------------|-----------------------------|-----------------------------------------------------------------------|
+|-------|----------|---------------|
+| `-h` | `--help` | Opens the help page |
 | `-g` | `--generate-keys` | Generate private and public keys |
 | `-e` | `--encode` | Encode text into QR code |
 | `-ef` | `--encode-file` | Encode text from a file into QR code |
