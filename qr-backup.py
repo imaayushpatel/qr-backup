@@ -114,5 +114,13 @@ elif a == "-ef" or a == "--encode-file":
     image = cv.resize(image, (500, 500))
     print("Encryption Successful")
 
+elif a == "-h" or a == "--help":
+    print("A tool to create encrypted QR code paper backup of sensitive texts")
+    print("-h, --help                 Opens the help page")
+    print("-g, --generate-keys        Generate private and public keys")
+    print("-e, --encode               Encode text into QR code")
+    print("-ef, --encode-file         Encode text from a file into QR code")
+    print("-d, --decode               Decode QR code into text")
+
 else:
   print("Error")
