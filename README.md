@@ -31,6 +31,7 @@ python3 qr-backup.py -g
 
 ### Encoding Text
 <p align="center"><img alt="encoding" src="https://user-images.githubusercontent.com/59290767/128384043-cf9b5990-1e6f-42a5-8f58-c14add4f14f0.png"></p><br>
+<p align="center"><img alt="qr_code" src="https://user-images.githubusercontent.com/59290767/128584111-9114e0e0-98bc-441a-833c-9391323a4c08.png" width="25%"></p><br>
 
 To encode text into QR code, use `-e` or `--encode` as given below and enter your message between " " (double quotes).
 
@@ -39,6 +40,7 @@ python3 qr-backup.py -e "witch collapse practice feed shame open despair creek r
 ```
 ### Encoding Text from a File
 <p align="center"><img alt="endoding_file" src="https://user-images.githubusercontent.com/59290767/128537723-56f998a0-22f1-45d2-8d53-e68ed8a6661c.png"></p><br>
+<p align="center"><img alt="qr_code" src="https://user-images.githubusercontent.com/59290767/128584111-9114e0e0-98bc-441a-833c-9391323a4c08.png" width="25%"></p><br>
 
 To encode text from a file into QR code, use `-ef` or `--encode-file` as given below.
 
