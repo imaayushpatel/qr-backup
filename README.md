@@ -8,12 +8,12 @@ This code use `RSA SHA256` asymmetric encryption to encrypt your text and then c
 - Linux, Windows or Mac OS
 
 ## Installation
-<p align="center"><img alt="installation" src="https://user-images.githubusercontent.com/59290767/128222774-cbf3601c-d85f-4d51-9f63-41d107b5127d.png"></p><br>
+<p align="center"><img alt="installation" src="https://user-images.githubusercontent.com/59290767/128734048-5d8d2a03-d154-4ef6-8ed4-3b6cf164735a.png"></p><br>
 
 Run the following commands step by step to install QR Backup on your device.
 
 ```shell
-git clone https://github.com/aayushp26/qr-backup
+git clone https://github.com/iamaayushp/qr-backup.git
 cd qr-backup
 pip3 install -r requirements.txt
 ```
