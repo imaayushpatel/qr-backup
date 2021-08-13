@@ -23,7 +23,6 @@ pip3 install -r requirements.txt
 ### Generating Keys
 <p align="center"><img alt="key generation" src="https://user-images.githubusercontent.com/59290767/129384914-47fa1c06-c878-4b96-a3b3-6e74e7c37826.png"></p><br>
 
-
 To generate your private and public keys, use `-g` or `--generate-keys` as give below.
 
 ```shell
@@ -34,7 +33,7 @@ python3 qr-backup.py -g
 <p align="center"><img alt="encoding text" src="https://user-images.githubusercontent.com/59290767/129385021-895e8aa8-4ac1-4cde-a6dc-3e8a0eaffad3.png"></p><br>
 <p align="center"><img alt="qr_code" src="https://user-images.githubusercontent.com/59290767/128584111-9114e0e0-98bc-441a-833c-9391323a4c08.png" width="25%"></p><br>
 
-To encode text into QR code, use `-e` or `--encode` as given below and enter your message between " " (double quotes).
+To encode text into QR code, use `-e` or `--encode` as given below and enter your message between " " (double quotes). You can save the QR code in any image format like `PNG`, `JPG` and even `GIF`. Here `PNG` is used.
 
 ```shell
 python3 qr-backup.py -e "witch collapse practice feed shame open despair creek road again ice least" qr_code.png public_key.pem
@@ -43,7 +42,7 @@ python3 qr-backup.py -e "witch collapse practice feed shame open despair creek r
 <p align="center"><img alt="endoding_file" src="https://user-images.githubusercontent.com/59290767/129385090-92db3b91-b8ce-4cfc-81be-1cf9917c19dc.png"></p><br>
 <p align="center"><img alt="qr_code" src="https://user-images.githubusercontent.com/59290767/128584111-9114e0e0-98bc-441a-833c-9391323a4c08.png" width="25%"></p><br>
 
-To encode text from a file into QR code, use `-ef` or `--encode-file` as given below.
+To encode text from a file into QR code, use `-ef` or `--encode-file` as given below. You can encrypt any file text format like `TXT`, `ASC` etc. Here `ASC` is used.
 
 ```shell
 python3 qr-backup.py -ef seed.asc qr_code.png public_key.pem
