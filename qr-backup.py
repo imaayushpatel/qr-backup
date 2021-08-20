@@ -11,10 +11,11 @@ import cv2 as cv
 import binascii
 
 a = sys.argv[1]
+
+
 if a == "-e" or a == "--encode":
     path = sys.argv[3]
     key = sys.argv[4]
-    # Reading the public_key back in
     with open(str(key), "rb") as key_file:
         public_key = serialization.load_pem_public_key(
             key_file.read(),
@@ -33,7 +34,8 @@ if a == "-e" or a == "--encode":
     code.png(path, scale=10)
     image = cv.imread(path)
     image = cv.resize(image, (500, 500))
-    print(binascii.hexlify(encrypted))
+    print(" ")
+    print(encrypted)
     
     
 elif a == "-ef" or a == "--encode-file":
@@ -59,7 +61,8 @@ elif a == "-ef" or a == "--encode-file":
     code.png(path, scale=10)
     image = cv.imread(path)
     image = cv.resize(image, (500, 500))
-    print(binascii.hexlify(encrypted))
+    print(" ")
+    print(encrypted)
     
     
 elif a == "-d" or a == "--decode":
