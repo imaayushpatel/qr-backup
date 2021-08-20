@@ -34,8 +34,7 @@ if a == "-e" or a == "--encode":
     code.png(path, scale=10)
     image = cv.imread(path)
     image = cv.resize(image, (500, 500))
-    print(" ")
-    print(encrypted)
+    print("Encryption Successfull")
     
     
 elif a == "-ef" or a == "--encode-file":
@@ -61,8 +60,7 @@ elif a == "-ef" or a == "--encode-file":
     code.png(path, scale=10)
     image = cv.imread(path)
     image = cv.resize(image, (500, 500))
-    print(" ")
-    print(encrypted)
+    print("Encryption Successfull")
     
     
 elif a == "-d" or a == "--decode":
