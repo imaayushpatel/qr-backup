@@ -33,9 +33,35 @@ if a == "-e" or a == "--encode":
     code.png(path, scale=10)
     image = cv.imread(path)
     image = cv.resize(image, (500, 500))
-    print("Encryption Successful")
+    print(binascii.hexlify(encrypted))
     
-
+    
+elif a == "-ef" or a == "--encode-file":
+    path = sys.argv[3]
+    key = sys.argv[4]
+    # Reading the public_key back in
+    with open(str(key), "rb") as key_file:
+        public_key = serialization.load_pem_public_key(
+            key_file.read(),
+            backend=default_backend()
+        )
+    with open(sys.argv[2], 'r') as f:
+        msg = bytes(f.read(), encoding='utf-8')
+    encrypted = public_key.encrypt(
+        msg,
+        padding.OAEP(
+            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            algorithm=hashes.SHA256(),
+            label=None
+        )
+    )
+    code = pyqrcode.create(binascii.hexlify(encrypted))
+    code.png(path, scale=10)
+    image = cv.imread(path)
+    image = cv.resize(image, (500, 500))
+    print(binascii.hexlify(encrypted))
+    
+    
 elif a == "-d" or a == "--decode":
     path = sys.argv[2]
     key = sys.argv[3]
@@ -88,31 +114,6 @@ elif a == "-g" or a == "--generate-keys":
     
     print("Keys Generation Successful")
 
-
-elif a == "-ef" or a == "--encode-file":
-    path = sys.argv[3]
-    key = sys.argv[4]
-    # Reading the public_key back in
-    with open(str(key), "rb") as key_file:
-        public_key = serialization.load_pem_public_key(
-            key_file.read(),
-            backend=default_backend()
-        )
-    with open(sys.argv[2], 'r') as f:
-        msg = bytes(f.read(), encoding='utf-8')
-    encrypted = public_key.encrypt(
-        msg,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    code = pyqrcode.create(binascii.hexlify(encrypted))
-    code.png(path, scale=10)
-    image = cv.imread(path)
-    image = cv.resize(image, (500, 500))
-    print("Encryption Successful")
 
 elif a == "-h" or a == "--help":
     print("A tool to create encrypted QR code paper backup of sensitive texts")
