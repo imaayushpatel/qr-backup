@@ -33,7 +33,7 @@ python3 qr-backup.py -g
 <p align="center"><img alt="encoding text" src="https://user-images.githubusercontent.com/59290767/129385021-895e8aa8-4ac1-4cde-a6dc-3e8a0eaffad3.png"></p><br>
 <p align="center"><img alt="qr_code" src="https://user-images.githubusercontent.com/59290767/128584111-9114e0e0-98bc-441a-833c-9391323a4c08.png" width="25%"></p><br>
 
-To encode text into QR code, use `-e` or `--encode` as given below and enter your message between " " (double quotes). You can save the QR code in any image format like `PNG`, `JPG` and even `GIF`. Here `PNG` is used.
+To encode text into QR code, use `-e` or `--encode` as given below and enter your message between " " (double quotes). You can save the QR code in any image format like `PNG`, `JPG` and even `GIF` which you can print later. Here `PNG` is used. 
 
 ```shell
 python3 qr-backup.py -e "witch collapse practice feed shame open despair creek road again ice least" qr_code.png public_key.pem
@@ -47,8 +47,17 @@ To encode text from a file into QR code, use `-ef` or `--encode-file` as given b
 ```shell
 python3 qr-backup.py -ef seed.asc qr_code.png public_key.pem
 ```
+### Scanning QR COde
+<p align="center"><img alt="scannig" src="https://user-images.githubusercontent.com/59290767/130478571-68463d04-f7a4-41d7-9572-02b251e8dd7b.png"></p>
+<br>
 
-### Decoding QR Code
+To scan the printed QR code, use `-s` or `--scan` as given below. When it shows `Scanning.....` point your webcam towards the QR code.
+
+```shell
+python3 qr-backup.py -s private_key.pem
+```
+
+### Decoding QR Code from Image
 <p align="center"><img alt="decoding" src="https://user-images.githubusercontent.com/59290767/129385193-2203741a-40bf-4123-b16d-b0af185f6206.png"></p><br>
 
 To decode your text from the QR code, use `-d` or `--decode` as given below.
