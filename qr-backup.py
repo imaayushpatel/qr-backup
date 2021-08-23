@@ -154,6 +154,7 @@ elif a == "-h" or a == "--help":
     print("-g, --generate-keys        Generate private and public keys")
     print("-e, --encode               Encode text into QR code")
     print("-ef, --encode-file         Encode text from a file into QR code")
+    print("-s, --scan                 Scan the QR code from printed format")
     print("-d, --decode               Decode QR code into text")
 
 else:
