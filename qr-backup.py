@@ -7,6 +7,8 @@ from cryptography.hazmat.primitives.asymmetric import padding
 import pyqrcode
 from PIL import Image
 from pyzbar.pyzbar import decode
+import pyzbar
+import numpy as np
 import cv2 as cv
 import binascii
 
@@ -35,8 +37,8 @@ if a == "-e" or a == "--encode":
     image = cv.imread(path)
     image = cv.resize(image, (500, 500))
     print("Encryption Successfull")
-    
-    
+
+
 elif a == "-ef" or a == "--encode-file":
     path = sys.argv[3]
     key = sys.argv[4]
@@ -61,8 +63,38 @@ elif a == "-ef" or a == "--encode-file":
     image = cv.imread(path)
     image = cv.resize(image, (500, 500))
     print("Encryption Successfull")
-    
-    
+
+
+elif a == "-s" or a == "--scan":
+    key = sys.argv[2]
+    with open(str(key), "rb") as key_file:
+        private_key = serialization.load_pem_private_key(
+            key_file.read(),
+            password=None,
+            backend=default_backend()
+        )
+
+    print("Scanning.....")
+    cap = cv.VideoCapture(0)
+    font = cv.FONT_HERSHEY_PLAIN
+    _, frame = cap.read()
+    decodedObjects = decode(frame)
+    for i in decodedObjects:
+        encrypted =  binascii.unhexlify(i.data.decode("utf-8"))
+        if type(encrypted) == str:
+            break
+    original_message = private_key.decrypt(
+        encrypted,
+        padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None
+        )
+        )
+    print("Decryption Successful")
+    print("Decrypted Text:  ", original_message.decode('utf-8'))
+
+
 elif a == "-d" or a == "--decode":
     path = sys.argv[2]
     key = sys.argv[3]
@@ -112,7 +144,7 @@ elif a == "-g" or a == "--generate-keys":
     )
     with open('public_key.pem', 'wb') as f:
         f.write(pem)
-    
+
     print("Keys Generation Successful")
 
 

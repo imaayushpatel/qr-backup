@@ -2,4 +2,5 @@ cryptography
 pyqrcode
 pyzbar
 PILLOW
+numpy
 opencv-python
