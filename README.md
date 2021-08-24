@@ -48,7 +48,7 @@ To encode text from a file into QR code, use `-ef` or `--encode-file` as given b
 python3 qr-backup.py -ef seed.asc qr_code.png public_key.pem
 ```
 ### Scanning QR COde
-<p align="center"><img alt="scannig" src="https://user-images.githubusercontent.com/59290767/130478571-68463d04-f7a4-41d7-9572-02b251e8dd7b.png"></p>
+<p align="center"><img alt="scannig" src="https://user-images.githubusercontent.com/59290767/130615449-25c0d274-6752-4e1f-8127-9e8f3ac74843.png"></p>
 <br>
 
 To scan the printed QR code, use `-s` or `--scan` as given below. When it shows `Scanning.....` point your webcam towards the QR code.
