@@ -1,6 +1,6 @@
-cryptography
-pyqrcode
-pyzbar
-PILLOW
-numpy
-opencv-python
+cryptography >= 3.3.2
+pyqrcode >= 1.2.1
+pyzbar >= 0.1.8
+PILLOW >= 8.1.2
+numpy >= 1.19.5
+opencv-python >= 4.5.3.56
