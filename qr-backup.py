@@ -1,5 +1,4 @@
 import sys
-import os
 import binascii
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric import rsa
@@ -77,8 +76,6 @@ elif option == "-s" or option == "--scan":
     decodedObjects = decode(frame)
     for i in decodedObjects:
         encrypted = binascii.unhexlify(i.data.decode("utf-8"))
-        if type(encrypted) == str:
-            break
     original_message = private_key.decrypt(
         encrypted,
         padding.OAEP(
