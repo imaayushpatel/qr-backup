@@ -4,8 +4,6 @@ The purpose of this project is to establish a more secure alternative to paper b
 This code use `RSA SHA256` asymmetric encryption to encrypt your text and then convert it a QR code which can later be printed and kept at a safe place.
 
 ## Installation
-<p align="center"><img alt="installation" src="https://user-images.githubusercontent.com/59290767/129384671-e98580f1-d8d8-4842-a3cf-22cdc92c1026.png"></p><br>
-
 Run the following commands step by step to install QR Backup on your device.
 
 ```shell
