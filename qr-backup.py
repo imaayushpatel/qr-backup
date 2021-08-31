@@ -1,21 +1,21 @@
-import sys, os
+import sys
+import os
+import binascii
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
-import pyqrcode
+import cv2 as cv
+import numpy as np
 from PIL import Image
+import pyqrcode
 from pyzbar.pyzbar import decode
 import pyzbar
-import numpy as np
-import cv2 as cv
-import binascii
 
-a = sys.argv[1]
+option = sys.argv[1]
 
-
-if a == "-e" or a == "--encode":
+if option == "-e" or option == "--encode":
     path = sys.argv[3]
     key = sys.argv[4]
     with open(str(key), "rb") as key_file:
@@ -38,11 +38,9 @@ if a == "-e" or a == "--encode":
     image = cv.resize(image, (500, 500))
     print("Encryption Successfull")
 
-
-elif a == "-ef" or a == "--encode-file":
+elif option == "-ef" or option == "--encode-file":
     path = sys.argv[3]
     key = sys.argv[4]
-    # Reading the public_key back in
     with open(str(key), "rb") as key_file:
         public_key = serialization.load_pem_public_key(
             key_file.read(),
@@ -64,8 +62,7 @@ elif a == "-ef" or a == "--encode-file":
     image = cv.resize(image, (500, 500))
     print("Encryption Successfull")
 
-
-elif a == "-s" or a == "--scan":
+elif option == "-s" or option == "--scan":
     key = sys.argv[2]
     with open(str(key), "rb") as key_file:
         private_key = serialization.load_pem_private_key(
@@ -73,42 +70,15 @@ elif a == "-s" or a == "--scan":
             password=None,
             backend=default_backend()
         )
-
     print("Scanning.....")
     cap = cv.VideoCapture(0)
     font = cv.FONT_HERSHEY_PLAIN
     _, frame = cap.read()
     decodedObjects = decode(frame)
     for i in decodedObjects:
-        encrypted =  binascii.unhexlify(i.data.decode("utf-8"))
+        encrypted = binascii.unhexlify(i.data.decode("utf-8"))
         if type(encrypted) == str:
             break
-    original_message = private_key.decrypt(
-        encrypted,
-        padding.OAEP(
-        mgf=padding.MGF1(algorithm=hashes.SHA256()),
-        algorithm=hashes.SHA256(),
-        label=None
-        )
-        )
-    print("Decryption Successful")
-    print("Decrypted Text:  ", original_message.decode('utf-8'))
-
-
-elif a == "-d" or a == "--decode":
-    path = sys.argv[2]
-    key = sys.argv[3]
-    # Reading the private_key back in
-    with open(str(key), "rb") as key_file:
-        private_key = serialization.load_pem_private_key(
-            key_file.read(),
-            password=None,
-            backend=default_backend()
-        )
-    img = Image.open(path)
-    result = decode(img)
-    for i in result:
-        encrypted =  binascii.unhexlify(i.data.decode("utf-8"))
     original_message = private_key.decrypt(
         encrypted,
         padding.OAEP(
@@ -120,17 +90,37 @@ elif a == "-d" or a == "--decode":
     print("Decryption Successful")
     print("Decrypted Text:  ", original_message.decode('utf-8'))
 
+elif option == "-d" or option == "--decode":
+    path = sys.argv[2]
+    key = sys.argv[3]
+    with open(str(key), "rb") as key_file:
+        private_key = serialization.load_pem_private_key(
+            key_file.read(),
+            password=None,
+            backend=default_backend()
+        )
+    img = Image.open(path)
+    result = decode(img)
+    for i in result:
+        encrypted = binascii.unhexlify(i.data.decode("utf-8"))
+    original_message = private_key.decrypt(
+        encrypted,
+        padding.OAEP(
+            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            algorithm=hashes.SHA256(),
+            label=None
+        )
+    )
+    print("Decryption Successful")
+    print("Decrypted Text:  ", original_message.decode('utf-8'))
 
-elif a == "-g" or a == "--generate-keys":
-    # Generating a key
+elif option == "-g" or option == "--generate-keys":
     private_key = rsa.generate_private_key(
         public_exponent=65537,
         key_size=4096,
         backend=default_backend()
     )
     public_key = private_key.public_key()
-
-    # Storing the keys
     pem = private_key.private_bytes(
         encoding=serialization.Encoding.PEM,
         format=serialization.PrivateFormat.PKCS8,
@@ -147,8 +137,7 @@ elif a == "-g" or a == "--generate-keys":
 
     print("Keys Generation Successful")
 
-
-elif a == "-h" or a == "--help":
+elif option == "-h" or option == "--help":
     print("A tool to create encrypted QR code paper backup of sensitive texts")
     print("-h, --help                 Opens the help page")
     print("-g, --generate-keys        Generate private and public keys")
@@ -158,4 +147,4 @@ elif a == "-h" or a == "--help":
     print("-d, --decode               Decode QR code into text")
 
 else:
-  print("Error")
+    print("Error")
