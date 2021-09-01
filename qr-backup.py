@@ -130,7 +130,6 @@ elif option == "-g" or option == "--generate-keys":
     )
     with open('public_key.pem', 'wb') as f:
         f.write(pem)
-
     print("Keys Generation Successful")
 
 elif option == "-h" or option == "--help":
