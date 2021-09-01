@@ -10,7 +10,6 @@ import numpy as np
 from PIL import Image
 import pyqrcode
 from pyzbar.pyzbar import decode
-import pyzbar
 
 option = sys.argv[1]
 
