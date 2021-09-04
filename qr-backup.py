@@ -13,6 +13,7 @@ from pyzbar.pyzbar import decode
 
 option = sys.argv[1]
 
+# Encoding from Text Option
 if option == "-e" or option == "--encode":
     path = sys.argv[3]
     key = sys.argv[4]
@@ -36,6 +37,7 @@ if option == "-e" or option == "--encode":
     image = cv.resize(image, (500, 500))
     print("Encryption Successfull")
 
+# Encoding from File Option
 elif option == "-ef" or option == "--encode-file":
     path = sys.argv[3]
     key = sys.argv[4]
@@ -60,6 +62,7 @@ elif option == "-ef" or option == "--encode-file":
     image = cv.resize(image, (500, 500))
     print("Encryption Successfull")
 
+# Scanning Option
 elif option == "-s" or option == "--scan":
     key = sys.argv[2]
     with open(str(key), "rb") as key_file:
@@ -86,6 +89,7 @@ elif option == "-s" or option == "--scan":
     print("Decryption Successful")
     print("Decrypted Text:  ", original_message.decode('utf-8'))
 
+# Decoding Option
 elif option == "-d" or option == "--decode":
     path = sys.argv[2]
     key = sys.argv[3]
@@ -110,6 +114,7 @@ elif option == "-d" or option == "--decode":
     print("Decryption Successful")
     print("Decrypted Text:  ", original_message.decode('utf-8'))
 
+# Key Generation Option
 elif option == "-g" or option == "--generate-keys":
     private_key = rsa.generate_private_key(
         public_exponent=65537,
@@ -132,6 +137,7 @@ elif option == "-g" or option == "--generate-keys":
         f.write(pem)
     print("Keys Generation Successful")
 
+# Help Option
 elif option == "-h" or option == "--help":
     print("A tool to create encrypted QR code paper backup of sensitive texts")
     print("-h, --help                 Opens the help page")
