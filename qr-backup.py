@@ -87,7 +87,7 @@ elif option == "-s" or option == "--scan":
         )
     )
     print("Decryption Successful")
-    print("Decrypted Text:  ", original_message.decode('utf-8'))
+    print("Decrypted Text: \n", original_message.decode('utf-8'))
 
 # Decoding Option
 elif option == "-d" or option == "--decode":
