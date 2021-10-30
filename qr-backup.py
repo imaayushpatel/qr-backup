@@ -112,7 +112,7 @@ elif option == "-d" or option == "--decode":
         )
     )
     print("Decryption Successful")
-    print("Decrypted Text:  ", original_message.decode('utf-8'))
+    print("Decrypted Text: \n", original_message.decode('utf-8'))
 
 # Key Generation Option
 elif option == "-g" or option == "--generate-keys":
