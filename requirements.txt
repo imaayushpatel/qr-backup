@@ -4,3 +4,4 @@ pyzbar >= 0.1.8
 PILLOW >= 8.1.2
 numpy >= 1.19.5
 opencv-python >= 4.5.3.56
+pypng >= 0.20220715.0
